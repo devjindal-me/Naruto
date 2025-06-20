@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
 export function Techniques() {
@@ -8,26 +8,26 @@ export function Techniques() {
       <h2 className="text-3xl font-bold font-headline text-primary">Techniques & Abilities</h2>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {techniques.map((tech) => (
-          <Card key={tech.name} className="flex flex-col overflow-hidden hover:shadow-xl transition-shadow duration-300">
-            <CardHeader>
-              <div className="flex justify-between items-start">
-                <CardTitle className="font-headline text-xl">{tech.name}</CardTitle>
-                <Badge variant="secondary" className="bg-accent text-accent-foreground">{tech.type}</Badge>
-              </div>
-            </CardHeader>
-            <CardContent className="flex-grow flex flex-col">
-              <div className="relative w-full h-48 mb-4">
+          <Card key={tech.name} className="overflow-hidden group hover:shadow-xl transition-shadow duration-300">
+            <CardContent className="p-0">
+              <div className="relative aspect-[3/2] w-full">
                 <Image
                   src={tech.image}
                   alt={tech.name}
                   fill
-                  className="object-cover rounded-md"
+                  className="object-cover transition-transform duration-300 group-hover:scale-110"
                   data-ai-hint={tech.aiHint}
                 />
               </div>
-              <CardDescription className="font-body text-base text-muted-foreground flex-grow">
-                {tech.description}
-              </CardDescription>
+              <div className="p-4 space-y-2">
+                <div className="flex justify-between items-start gap-2">
+                    <h3 className="font-headline text-xl font-bold">{tech.name}</h3>
+                    <Badge variant="secondary" className="bg-accent text-accent-foreground whitespace-nowrap">{tech.type}</Badge>
+                </div>
+                <p className="font-body text-sm text-muted-foreground">
+                  {tech.description}
+                </p>
+              </div>
             </CardContent>
           </Card>
         ))}

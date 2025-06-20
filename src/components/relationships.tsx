@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { Card, CardContent, CardTitle, CardDescription } from "@/components/ui/card";
 import { Heart } from "lucide-react";
 
 export function Relationships() {
@@ -8,22 +8,25 @@ export function Relationships() {
       <h2 className="text-3xl font-bold font-headline text-primary">Important Bonds</h2>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {relationships.map((rel) => (
-          <Card key={rel.name} className="group overflow-hidden hover:shadow-xl transition-shadow duration-300 text-center">
-            <CardContent className="p-6">
-              <div className="relative w-32 h-32 mx-auto mb-4">
+          <Card key={rel.name} className="overflow-hidden group hover:shadow-xl transition-shadow duration-300">
+            <CardContent className="p-0">
+              <div className="relative aspect-square">
                 <Image
                   src={rel.image}
                   alt={rel.name}
                   fill
-                  className="object-cover rounded-full border-4 border-secondary group-hover:border-primary transition-colors duration-300"
+                  className="object-cover transition-transform duration-300 group-hover:scale-110"
                   data-ai-hint={rel.aiHint}
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-4">
+                  <CardTitle className="font-headline text-xl text-white">{rel.name}</CardTitle>
+                  <CardDescription className="flex items-center gap-2 text-primary-foreground/90 font-semibold mt-1">
+                    <Heart className="w-4 h-4 text-primary" />
+                    <span>{rel.relation}</span>
+                  </CardDescription>
+                </div>
               </div>
-              <CardTitle className="font-headline text-xl">{rel.name}</CardTitle>
-              <CardDescription className="flex items-center justify-center gap-2 text-accent font-semibold mt-1">
-                <Heart className="w-4 h-4" />
-                <span>{rel.relation}</span>
-              </CardDescription>
             </CardContent>
           </Card>
         ))}

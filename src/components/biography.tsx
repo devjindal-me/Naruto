@@ -64,5 +64,6 @@ const milestones = [
   { title: "Defeats Pain", description: "Saves the Hidden Leaf Village from destruction and becomes hailed as a hero." },
   { title: "Masters Sage Mode", description: "Learns to harness natural energy at Mount Myōboku, drastically increasing his power." },
   { title: "Befriends Kurama", description: "Gains control over the Nine-Tails' chakra, turning a source of fear into his greatest ally." },
+  { title: "Fourth Great Ninja War", description: "Plays a pivotal role in the Allied Shinobi Forces' victory against Obito, Madara, and Kaguya, ending the war and bringing peace." },
   { title: "Becomes Seventh Hokage", description: "Achieves his lifelong dream of becoming the leader and protector of the Hidden Leaf Village." },
 ];
