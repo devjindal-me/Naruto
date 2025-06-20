@@ -1,53 +1,47 @@
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Biography } from "@/components/biography"
-import { Techniques } from "@/components/techniques"
-import { Relationships } from "@/components/relationships"
-import { PlotTwists } from "@/components/gallery"
-import { Chatbot } from "@/components/chatbot"
-import { BookUser, Swords, Users, Zap, Bot, Atom } from "lucide-react"
+import Image from "next/image";
+import { Separator } from "@/components/ui/separator";
 
-export default function Home() {
+export default function BiographyPage() {
   return (
-    <div className="min-h-screen bg-muted/40">
-      <main className="container mx-auto p-4 md:p-8">
-        <header className="text-center mb-8">
-          <div className="inline-flex items-center gap-4 mb-2">
-             <Atom className="w-12 h-12 text-primary" />
-             <h1 className="text-4xl md:text-6xl font-headline font-bold text-primary">
-              Naruto Info Hub
-            </h1>
-          </div>
-          <p className="text-muted-foreground font-body text-lg">
-            Your one-stop destination for everything about Naruto Uzumaki!
+    <div className="container mx-auto p-4 md:p-8 space-y-8 font-body">
+      <header className="text-center mb-4">
+        <h1 className="text-4xl md:text-5xl font-headline font-bold text-primary">
+          Biography of Naruto Uzumaki
+        </h1>
+        <p className="text-muted-foreground font-body text-lg mt-2">
+          The story of the Hero of the Hidden Leaf.
+        </p>
+      </header>
+      
+      <div className="grid md:grid-cols-3 gap-8 items-start">
+        <div className="md:col-span-2 space-y-4">
+          <p className="text-lg leading-relaxed">
+            Naruto Uzumaki is a shinobi from Konohagakure's Uzumaki clan. He became the jinchūriki of the Nine-Tails on the day of his birth — a fate that caused him to be shunned by most of Konoha throughout his childhood. After joining Team Kakashi, Naruto worked hard to gain the village's acknowledgement, all the while chasing his dream to become Hokage.
           </p>
-        </header>
-        
-        <Tabs defaultValue="biography" className="w-full">
-          <TabsList className="grid w-full grid-cols-2 sm:grid-cols-3 md:grid-cols-5 bg-card border h-auto">
-            <TabsTrigger value="biography" className="py-2"><BookUser className="mr-2 h-4 w-4" />Biography</TabsTrigger>
-            <TabsTrigger value="techniques" className="py-2"><Swords className="mr-2 h-4 w-4" />Techniques</TabsTrigger>
-            <TabsTrigger value="relationships" className="py-2"><Users className="mr-2 h-4 w-4" />Relationships</TabsTrigger>
-            <TabsTrigger value="plot-twists" className="py-2"><Zap className="mr-2 h-4 w-4" />Plot Twists</TabsTrigger>
-            <TabsTrigger value="chatbot" className="py-2"><Bot className="mr-2 h-4 w-4" />Chatbot</TabsTrigger>
-          </TabsList>
-          
-          <TabsContent value="biography" className="mt-6 p-4 md:p-6 bg-card rounded-lg border">
-            <Biography />
-          </TabsContent>
-          <TabsContent value="techniques" className="mt-6 p-4 md:p-6 bg-card rounded-lg border">
-            <Techniques />
-          </TabsContent>
-          <TabsContent value="relationships" className="mt-6 p-4 md:p-6 bg-card rounded-lg border">
-            <Relationships />
-          </TabsContent>
-          <TabsContent value="plot-twists" className="mt-6 p-4 md:p-6 bg-card rounded-lg border">
-            <PlotTwists />
-          </TabsContent>
-          <TabsContent value="chatbot" className="mt-6 p-4 md:p-6 bg-card rounded-lg border">
-            <Chatbot />
-          </TabsContent>
-        </Tabs>
-      </main>
+          <p className="text-muted-foreground">
+            In the following years, through many hardships and ordeals, he became a capable ninja regarded as a hero by the villagers, and soon after, the rest of the world, becoming known as the Hero of the Hidden Leaf. He soon proved to be one of the main factors in winning the Fourth Great Ninja War, leading him to achieve his dream and become the village's Seventh Hokage.
+          </p>
+        </div>
+        <div className="relative group">
+          <Image 
+            src="https://placehold.co/400x500.png"
+            alt="Naruto Uzumaki Portrait"
+            width={400}
+            height={500}
+            className="rounded-lg shadow-lg object-cover w-full h-auto transition-transform duration-300 group-hover:scale-105"
+            data-ai-hint="Naruto portrait"
+          />
+        </div>
+      </div>
+
+      <Separator />
+
+      <div className="space-y-6">
+        <h2 className="text-3xl font-bold font-headline text-center">Personality</h2>
+        <p className="text-muted-foreground text-center max-w-3xl mx-auto">
+          Naruto is characterized as boisterous, exuberant, and unorthodox. He inherited his mother's verbal tic, "dattebayo!", which he uses at the end of his sentences. Despite his initial immaturity, Naruto is a kind-hearted individual who is dedicated to his friends and village. His resolve allows him to befriend nearly anyone he meets, and he can change their entire worldview.
+        </p>
+      </div>
     </div>
-  );
+  )
 }
